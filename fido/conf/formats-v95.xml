@@ -6315,7 +6315,7 @@ A non-authoritative version of the specification can be found at: http://avce00.
       <pattern>
         <position>BOF</position>
         <pronom_pattern>3C3F786D6C2076657273696F6E3D(22|27)312E30(22|27){0-320}786D6C6E733A676D6C3D(22|27)687474703A2F2F7777772E6F70656E6769732E6E65742F676D6C</pronom_pattern>
-	<regex>(?s)\A\x3c\?xml version=["']1\.0["'](?:[^\x3c]{0,20}\x3c!--[^\x3e]{0,300}--\x3e){0,30}[^\x3c]{0,20}\x3cgml:[^\x3e]{0,320}xmlns:gml=["']http://www\.opengis\.net/gml/3\.2"</regex>
+	<regex>(?s)\A\x3c\?xml version=["']1\.0["'](?:[^\x3c]{0,20}\x3c!--[^\x3e]{0,300}--\x3e){0,30}[^\x3c]{0,20}\x3cgml:[^\x3e]{0,320}xmlns:gml=["']http://www\.opengis\.net/gml</regex>
       </pattern>
     </signature>
     <details>
