@@ -515,7 +515,7 @@ class Fido:
             buffer += readbuffer
             bytes_read = len(buffer)
             # break out if EOF is reached.
-            if readbuffer == '':
+            if not readbuffer:
                 break
         return buffer
 
