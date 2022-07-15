@@ -4,6 +4,7 @@ variables:
   CI_PYTHON_3: "yes"
   CI_PYTHON_2_VENV: "yes"
   CI_SKIP_STATIC_ANALYSIS: "yes"
+  CI_SKIP_COVERAGE: "yes"
   CI_SKIP_RPM_BUILD: "yes"
 
 include:
