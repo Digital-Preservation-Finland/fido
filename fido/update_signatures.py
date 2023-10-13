@@ -23,8 +23,8 @@ import time
 from xml.etree import ElementTree as CET
 import zipfile
 
-from six.moves.urllib.request import urlopen
-from six.moves.urllib.error import URLError
+from urllib.request import urlopen
+from urllib.error import URLError
 
 from . import __version__, CONFIG_DIR, query_yes_no
 from .prepare import run as prepare_pronom_to_fido

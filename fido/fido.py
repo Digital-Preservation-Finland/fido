@@ -25,8 +25,6 @@ except ImportError:
 from xml.etree import cElementTree as ET
 import zipfile
 
-from six.moves import range
-
 from . import __version__, CONFIG_DIR
 from .package import OlePackage, ZipPackage
 from .pronomutils import get_local_pronom_versions

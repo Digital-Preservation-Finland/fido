@@ -26,8 +26,7 @@ from xml.etree import ElementTree as ET
 from xml.etree.ElementTree import parse, ParseError
 from xml.parsers.expat import ExpatError, ParserCreate
 
-import six
-from six.moves import http_client
+import http.client
 
 from . import __version__, CONFIG_DIR
 
@@ -79,7 +78,7 @@ def get_pronom_signature(type_):
             "Content-length": "%d" % len(soapStr),
             "SOAPAction": soapAction
         }
-        connection = http_client.HTTPConnection("www.nationalarchives.gov.uk")
+        connection = http.client.HTTPConnection("www.nationalarchives.gov.uk")
         try:
             connection.request("POST", "/pronom/service.asmx", soapStr, headers)
         except Exception as e:
@@ -189,7 +188,7 @@ class LocalPronomVersions(object):
     def write(self):
         """Update versions.xml."""
         # Check that all the fields are defined
-        for key, value in six.iteritems(self.PROPS_MAPPING):
+        for key, value in dict.items(self.PROPS_MAPPING):
             if self.root.find(value) is None:
                 raise ValueError('Field {} has not been defined!'.format(key))
         self.tree.write(self.versions_file, xml_declaration=True, method='xml', encoding='utf-8')

@@ -12,9 +12,9 @@ from xml.dom import minidom
 from xml.etree import ElementTree as ET
 import zipfile
 
-from six.moves import cStringIO
-from six.moves.urllib.request import urlopen
-from six.moves.urllib.parse import urlparse
+from io import StringIO as cStringIO
+from urllib.request import urlopen
+from urllib.parse import urlparse
 
 from .pronomutils import get_local_pronom_versions
 from .char_handler import escape
