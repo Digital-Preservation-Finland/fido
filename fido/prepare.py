@@ -12,7 +12,7 @@ from xml.dom import minidom
 from xml.etree import ElementTree as ET
 import zipfile
 
-from io import StringIO as cStringIO
+from io import StringIO
 from urllib.request import urlopen
 from urllib.parse import urlparse
 
@@ -372,7 +372,7 @@ def doByte(chars, i, littleendian, esc=True):
     """
     c1 = '0123456789ABCDEF'.find(chars[i].upper())
     c2 = '0123456789ABCDEF'.find(chars[i + 1].upper())
-    buf = cStringIO()
+    buf = StringIO()
     if (c1 < 0 or c2 < 0):
         raise Exception(_convert_err_msg('bad byte sequence', chars[i:i + 2], i, chars, buf))
     if littleendian:
@@ -395,7 +395,7 @@ def calculate_repetition(char, pos, offset, maxoffset):
     This function only has an effect when one or both offsets is greater than
     MAX_REGEX_REPS bytes (4GB). See: https://bugs.python.org/issue13169.
     """
-    calcbuf = cStringIO()
+    calcbuf = StringIO()
 
     calcremain = False
     offsetremain = 0
@@ -492,7 +492,7 @@ def convert_to_regex(chars, endianness='', pos='BOF', offset='0', maxoffset=''):
         maxoffset = None
     if maxoffset == '0':
         maxoffset = None
-    buf = cStringIO()
+    buf = StringIO()
     buf.write("(?s)")  # If a regex starts with (?s), it is equivalent to DOTALL.
     i = 0
     state = 'start'
