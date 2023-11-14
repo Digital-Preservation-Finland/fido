@@ -188,7 +188,7 @@ class LocalPronomVersions(object):
     def write(self):
         """Update versions.xml."""
         # Check that all the fields are defined
-        for key, value in iter(dict.items(self.PROPS_MAPPING)):
+        for key, value in self.PROPS_MAPPING.items():
             if self.root.find(value) is None:
                 raise ValueError('Field {} has not been defined!'.format(key))
         self.tree.write(self.versions_file, xml_declaration=True, method='xml', encoding='utf-8')
