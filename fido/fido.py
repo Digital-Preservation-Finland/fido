@@ -669,6 +669,15 @@ class Fido:
         self.current_count += 1
         result = []
         for format in self.formats:
+            # Skip MP3 regex if we've already identified format as DPX
+            pronom_id = format.find("pronom_id")
+            is_mp3 = pronom_id is not None and pronom_id.text == "687"
+            dpx_in_results = False
+            for _, _format in result:
+                if "DPX" in _format:
+                    dpx_in_results = True
+            if is_mp3 and dpx_in_results:
+                continue
             try:
                 self.current_format = format
                 if self.as_good_as_any(format, result):
@@ -679,7 +688,7 @@ class Fido:
                             self.current_pat = pat
                             pos = self.get_pos(pat)
                             regex = self.get_regex(pat)
-                            # print 'trying ', regex
+                            # print('trying ', regex)
                             if pos == 'BOF':
                                 if not re.match(regex, bofbuffer):
                                     success = False

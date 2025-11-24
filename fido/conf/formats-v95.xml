@@ -14017,122 +14017,6 @@ EOF: EOI marker (FF|D9) with a large offset due to the amount of photoshop metad
     </details>
   </format>
   <format>
-    <puid>fmt/134</puid>
-    <mime>audio/mpeg</mime>
-    <name>MPEG 1/2 Audio Layer 3</name>
-    <version />
-    <alias>MP3</alias>
-    <pronom_id>687</pronom_id>
-    <extension>mp3</extension>
-    <apple_uid>public.mp3</apple_uid>
-    <signature>
-      <name>MPEG-1 Audio Layer 3 with ID3v2 Tag</name>
-      <note>Regularly-spaced frame headers should always be discoverable near EOF. An ID3v1 tag of up to 355 bytes may be present at EOF.</note>
-      <pattern>
-        <position>EOF</position>
-        <pronom_pattern>FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{47-1795}</pronom_pattern>
-        <regex>(?s)\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{47,1795}\Z</regex>
-      </pattern>
-      <pattern>
-        <position>BOF</position>
-        <pronom_pattern>494433</pronom_pattern>
-        <regex>(?s)\AID3</regex>
-      </pattern>
-    </signature>
-    <signature>
-      <name>MPEG-2 Audio Layer 3 with ID3v2 Tag</name>
-      <note>Regularly-spaced frame headers should always be discoverable near EOF. An ID3v1 tag of up to 355 bytes may be present at EOF.</note>
-      <pattern>
-        <position>EOF</position>
-        <pronom_pattern>FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{47-1795}</pronom_pattern>
-        <regex>(?s)\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{47,1795}\Z</regex>
-      </pattern>
-      <pattern>
-        <position>BOF</position>
-        <pronom_pattern>494433</pronom_pattern>
-        <regex>(?s)\AID3</regex>
-      </pattern>
-    </signature>
-    <signature>
-      <name>MPEG-1 Audio Layer 3 with ID3v2 Tag (protected)</name>
-      <note>Regularly-spaced frame headers should always be discoverable near EOF. Header has CRC bit off to indicate protected. An ID3v1 tag of up to 355 bytes may be present at EOF.</note>
-      <pattern>
-        <position>EOF</position>
-        <pronom_pattern>FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{47-1795}</pronom_pattern>
-        <regex>(?s)\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{47,1795}\Z</regex>
-      </pattern>
-      <pattern>
-        <position>BOF</position>
-        <pronom_pattern>494433</pronom_pattern>
-        <regex>(?s)\AID3</regex>
-      </pattern>
-    </signature>
-    <signature>
-      <name>MPEG-2 Audio Layer 3 with ID3v2 Tag (protected)</name>
-      <note>Regularly-spaced frame headers should always be discoverable near EOF. Header has CRC bit off to indicate protected. An ID3v1 tag of up to 355 bytes may be present at EOF.</note>
-      <pattern>
-        <position>EOF</position>
-        <pronom_pattern>FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{47-1795}</pronom_pattern>
-        <regex>(?s)\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{47,1795}\Z</regex>
-      </pattern>
-      <pattern>
-        <position>BOF</position>
-        <pronom_pattern>494433</pronom_pattern>
-        <regex>(?s)\AID3</regex>
-      </pattern>
-    </signature>
-    <signature>
-      <name>MPEG-1 Audio Layer 3 without ID3v2 Tag</name>
-      <note>Regularly-spaced frame headers should always be discoverable starting at BOF.</note>
-      <pattern>
-        <position>BOF</position>
-        <pronom_pattern>FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]</pronom_pattern>
-        <regex>(?s)\A.{0,1795}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb]</regex>
-      </pattern>
-    </signature>
-    <signature>
-      <name>MPEG-2 Audio Layer 3 without ID3v2 Tag</name>
-      <note>Regularly-spaced frame headers should always be discoverable starting at BOF.</note>
-      <pattern>
-        <position>BOF</position>
-        <pronom_pattern>FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]</pronom_pattern>
-        <regex>(?s)\A.{0,1795}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb]</regex>
-      </pattern>
-    </signature>
-    <signature>
-      <name>MPEG-1 Audio Layer 3 without ID3v2 Tag (protected)</name>
-      <note>Regularly-spaced frame headers should always be discoverable starting at BOF with each header having CRC bit set off to indicate file is protected.</note>
-      <pattern>
-        <position>BOF</position>
-        <pronom_pattern>FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]</pronom_pattern>
-        <regex>(?s)\A.{0,1795}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb]</regex>
-      </pattern>
-    </signature>
-    <signature>
-      <name>MPEG-2 Audio Layer 3 without ID3v2 Tag (protected)</name>
-      <note>Regularly-spaced frame headers should always be discoverable starting at BOF with each header having CRC bit set off to indicate file is protected.</note>
-      <pattern>
-        <position>BOF</position>
-        <pronom_pattern>FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]</pronom_pattern>
-        <regex>(?s)\A.{0,1795}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb]</regex>
-      </pattern>
-    </signature>
-    <details>
-      <dc:description>This is an outline record only, and requires further details, research or authentication to provide information that will enable users to further understand the format and to assess digital preservation risks associated with it if appropriate. If you are able to help by supplying any additional information concerning this entry, please return to the main PRONOM page and select &#8216;Add an Entry&#8217;.</dc:description>
-      <dcterms:available />
-      <dc:creator />
-      <dcterms:publisher />
-      <content_type>Audio</content_type>
-      <record_metadata>
-        <status>unknown</status>
-        <dc:creator>Digital Preservation Department / The National Archives</dc:creator>
-        <dcterms:created>11 Mar 2005</dcterms:created>
-        <dcterms:modified>02 Aug 2005</dcterms:modified>
-        <dc:description>Digital Preservation Department.</dc:description>
-      </record_metadata>
-    </details>
-  </format>
-  <format>
     <puid>fmt/39</puid>
     <mime>application/msword</mime>
     <name>Microsoft Word Document</name>
@@ -55158,6 +55042,122 @@ f &lt;space&gt; 3+ integer values, can be negative, separated by space. Faces co
         <dcterms:created>18 Feb 2019</dcterms:created>
         <dcterms:modified>18 Feb 2019</dcterms:modified>
         <dc:description />
+      </record_metadata>
+    </details>
+  </format>
+  <format>
+    <puid>fmt/134</puid>
+    <mime>audio/mpeg</mime>
+    <name>MPEG 1/2 Audio Layer 3</name>
+    <version />
+    <alias>MP3</alias>
+    <pronom_id>687</pronom_id>
+    <extension>mp3</extension>
+    <apple_uid>public.mp3</apple_uid>
+    <signature>
+      <name>MPEG-1 Audio Layer 3 with ID3v2 Tag</name>
+      <note>Regularly-spaced frame headers should always be discoverable near EOF. An ID3v1 tag of up to 355 bytes may be present at EOF.</note>
+      <pattern>
+        <position>EOF</position>
+        <pronom_pattern>FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{47-1795}</pronom_pattern>
+        <regex>(?s)\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{47,1795}\Z</regex>
+      </pattern>
+      <pattern>
+        <position>BOF</position>
+        <pronom_pattern>494433</pronom_pattern>
+        <regex>(?s)\AID3</regex>
+      </pattern>
+    </signature>
+    <signature>
+      <name>MPEG-2 Audio Layer 3 with ID3v2 Tag</name>
+      <note>Regularly-spaced frame headers should always be discoverable near EOF. An ID3v1 tag of up to 355 bytes may be present at EOF.</note>
+      <pattern>
+        <position>EOF</position>
+        <pronom_pattern>FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{47-1795}</pronom_pattern>
+        <regex>(?s)\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{47,1795}\Z</regex>
+      </pattern>
+      <pattern>
+        <position>BOF</position>
+        <pronom_pattern>494433</pronom_pattern>
+        <regex>(?s)\AID3</regex>
+      </pattern>
+    </signature>
+    <signature>
+      <name>MPEG-1 Audio Layer 3 with ID3v2 Tag (protected)</name>
+      <note>Regularly-spaced frame headers should always be discoverable near EOF. Header has CRC bit off to indicate protected. An ID3v1 tag of up to 355 bytes may be present at EOF.</note>
+      <pattern>
+        <position>EOF</position>
+        <pronom_pattern>FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{47-1795}</pronom_pattern>
+        <regex>(?s)\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{47,1795}\Z</regex>
+      </pattern>
+      <pattern>
+        <position>BOF</position>
+        <pronom_pattern>494433</pronom_pattern>
+        <regex>(?s)\AID3</regex>
+      </pattern>
+    </signature>
+    <signature>
+      <name>MPEG-2 Audio Layer 3 with ID3v2 Tag (protected)</name>
+      <note>Regularly-spaced frame headers should always be discoverable near EOF. Header has CRC bit off to indicate protected. An ID3v1 tag of up to 355 bytes may be present at EOF.</note>
+      <pattern>
+        <position>EOF</position>
+        <pronom_pattern>FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{47-1795}</pronom_pattern>
+        <regex>(?s)\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{47,1795}\Z</regex>
+      </pattern>
+      <pattern>
+        <position>BOF</position>
+        <pronom_pattern>494433</pronom_pattern>
+        <regex>(?s)\AID3</regex>
+      </pattern>
+    </signature>
+    <signature>
+      <name>MPEG-1 Audio Layer 3 without ID3v2 Tag</name>
+      <note>Regularly-spaced frame headers should always be discoverable starting at BOF.</note>
+      <pattern>
+        <position>BOF</position>
+        <pronom_pattern>FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]{46-1439}FFFB[10:EB]</pronom_pattern>
+        <regex>(?s)\A.{0,1795}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb].{46,1439}\xff\xfb[\x10-\xeb]</regex>
+      </pattern>
+    </signature>
+    <signature>
+      <name>MPEG-2 Audio Layer 3 without ID3v2 Tag</name>
+      <note>Regularly-spaced frame headers should always be discoverable starting at BOF.</note>
+      <pattern>
+        <position>BOF</position>
+        <pronom_pattern>FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]{46-1439}FFF3[10:EB]</pronom_pattern>
+        <regex>(?s)\A.{0,1795}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb].{46,1439}\xff\xf3[\x10-\xeb]</regex>
+      </pattern>
+    </signature>
+    <signature>
+      <name>MPEG-1 Audio Layer 3 without ID3v2 Tag (protected)</name>
+      <note>Regularly-spaced frame headers should always be discoverable starting at BOF with each header having CRC bit set off to indicate file is protected.</note>
+      <pattern>
+        <position>BOF</position>
+        <pronom_pattern>FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]{46-1439}FFFA[10:EB]</pronom_pattern>
+        <regex>(?s)\A.{0,1795}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb].{46,1439}\xff\xfa[\x10-\xeb]</regex>
+      </pattern>
+    </signature>
+    <signature>
+      <name>MPEG-2 Audio Layer 3 without ID3v2 Tag (protected)</name>
+      <note>Regularly-spaced frame headers should always be discoverable starting at BOF with each header having CRC bit set off to indicate file is protected.</note>
+      <pattern>
+        <position>BOF</position>
+        <pronom_pattern>FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]{46-1439}FFF2[10:EB]</pronom_pattern>
+        <regex>(?s)\A.{0,1795}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb].{46,1439}\xff\xf2[\x10-\xeb]</regex>
+      </pattern>
+    </signature>
+    <details>
+      <dc:description>This is an outline record only, and requires further details, research or authentication to provide information that will enable users to further understand the format and to assess digital preservation risks associated with it if appropriate. If you are able to help by supplying any additional information concerning this entry, please return to the main PRONOM page and select &#8216;Add an Entry&#8217;.</dc:description>
+      <dcterms:available />
+      <dc:creator />
+      <dcterms:publisher />
+      <content_type>Audio</content_type>
+      <record_metadata>
+        <status>unknown</status>
+        <dc:creator>Digital Preservation Department / The National Archives</dc:creator>
+        <dcterms:created>11 Mar 2005</dcterms:created>
+        <dcterms:modified>02 Aug 2005</dcterms:modified>
+        <dc:description>Digital Preservation Department.</dc:description>
       </record_metadata>
     </details>
   </format>
